@@ -1,8 +1,7 @@
 \documentclass[12pt]{article}
-%\pagestyle{empty}
-\setlength{\textwidth}{6in}
-\setlength{\oddsidemargin}{.25in}
-\setlength{\evensidemargin}{.25in}
+\usepackage[style=alphabetic]{biblatex}
+\usepackage{bookmark}
+\addbibresource{Mei_Rose_CONNOR.bib}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{epstopdf}
@@ -38,7 +37,10 @@
 \newcommand{\nn}{\ensuremath{\mathbb{N}}}
 \newcommand{\cc}{\ensuremath{\mathbb{C}}}
 \newcommand{\dd}{$\; \mathrm{d}$}
+\newcommand{\lognot}{\ensuremath{\sim \!}}
 \DeclareMathOperator{\forces}{\Vdash}
+\DeclareMathOperator{\logbox}{\square}
+\DeclareMathOperator{\logdiamond}{\lozenge}
 
 \newtheorem{definition}{Definition}[section]
 \newtheorem{theorem}{Theorem}[section]
@@ -50,5 +52,155 @@
 \date{\today}
 
 \maketitle
+
+The source of inspiration for this project was the author's own research on the Sevenfold Predication of Jaina theology and cosmology. For background,
+the Jaina take a pluralistic approach to theology and cosmology that is reflected in the Sanskrit word \emph{Anekantavada}, which glosses to something like `non-one-sidedness
+thesis'. This pluralism comes into the Jaina system of reasoning known as \emph{Saptabhangivada}, or Sevenfold Predication Thesis \cite{Burch1964}. Employing the word \emph{syad}, each of the
+seven truth predicates begins with a statement that can be translated as \emph{possibly}, \emph{it may be}, or \emph{in some ways}. The seven predicates are:
+
+\begin{enumerate}[noitemsep]
+    \item \emph{Syād-asti}, Possibly it exists.
+    \item \emph{Syān-nāsti}, Possibly it does not exist.
+    \item \emph{Syād-asti-nāsti}, Possibly it exists; possibly it does not exist.
+    \item \emph{Syāt-asti-avaktavya\d{h}}, Possibly it exists; possibly it is not assertible.
+    \item \emph{Syān-nāsti-avaktavya\d{h}}, Possibly it does not exist; possibly it is not assertible.
+    \item \emph{Syād-asti-nāsti-avaktavya\d{h}}, Possibly it exists; possibly it does not exist; possibly it is not assertible.
+    \item \emph{Syād-avaktavya\d{h}}, Possibly it is not assertible \cite{Ganeri2002}.
+\end{enumerate}
+
+
+The author chooses to abbreviate `it exists' as $\phi$.
+It would seem, from these translations, that two truth values do not suffice to not to introduce a contradiction or 
+tautology of the form $\phi \; \wedge \lognot \phi$ or  $\phi \; \vee \lognot \phi$ for the third truth predicate.  This reveals the meaning of the title of the paper: somehow,
+`and' is much too strong, causing a contradiction, but `or' is much too weak, causing a tautology. 
+
+There is also the question of what to do with the seventh predicate, as well as those predicates involving it in combination with $\phi$ and $\lognot \phi$.
+While it would seem possible to resolve it with a strong or weak Kleenean logical operator such as $U$, it is known that there are no tautologies in
+a system with either type of Kleenean logical operator. \cite{Burns2023} It also leaves the question of the negation of these logical predicates unanswered, as the negation of the truth value $U$ is
+$U$. The truth tables for the strong and weak Kleenean conjunction (\ref{KleeneStrongAnd} and \ref{KleeneWeakAnd} respectively), disjunction (\ref{KleeneStrongOr} and \ref{KleeneWeakOr} respectively), 
+and negation (\ref{KleeneStrongNot} and \ref{KleeneWeakNot} respectively) are shown in the tables below for reference. The author does not deny, however,
+that there are interesting and ``non--trivial'' \cite{Burns2023} consequence relations.
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+            \begin{tabular}{ c | c | c | c }
+                & $T$ & $U$ & $F$ \\
+                \hline
+                $T$ & $T$ & $U$ & $F$ \\
+                \hline
+                $U$ & $U$ & $U$ & $F$ \\
+                \hline
+                $F$ & $F$ & $F$ & $F$ \\
+            \end{tabular}
+            \caption{Kleenean strong conjunction}
+            \label{KleeneStrongAnd}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+            \begin{tabular}{ c | c | c | c }
+                & $T$ & $U$ & $F$ \\
+                \hline
+                $T$ & $T$ & $T$ & $T$ \\
+                \hline
+                $U$ & $T$ & $U$ & $U$ \\
+                \hline
+                $F$ & $T$ & $U$ & $F$ \\
+            \end{tabular}
+            \caption{Kleenean strong \\ disjunction}
+            \label{KleeneStrongOr}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+            \begin{tabular}{ c | c }
+                $T$ & $F$ \\
+                \hline
+                $U$ & $U$ \\
+                \hline
+                $F$ & $T$ \\
+            \end{tabular}
+            \caption{Kleenean strong negation}
+            \label{KleeneStrongNot}
+    \end{subfigure}
+    \caption{The truth tables for Kleenean strong logical connectives}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+            \begin{tabular}{ c | c | c | c }
+                & $T$ & $U$ & $F$ \\
+                \hline
+                $T$ & $T$ & $U$ & $F$ \\
+                \hline
+                $U$ & $U$ & $U$ & $U$ \\
+                \hline
+                $F$ & $F$ & $U$ & $F$ \\
+            \end{tabular}
+            \caption{Kleenean weak conjunction}
+            \label{KleeneWeakAnd}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+            \begin{tabular}{ c | c | c | c }
+                & $T$ & $U$ & $F$ \\
+                \hline
+                $T$ & $T$ & $U$ & $T$ \\
+                \hline
+                $U$ & $T$ & $U$ & $U$ \\
+                \hline
+                $F$ & $T$ & $U$ & $F$ \\
+            \end{tabular}
+            \caption{Kleenean weak \\ disjunction}
+            \label{KleeneWeakOr}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+            \begin{tabular}{ c | c }
+                $T$ & $F$ \\
+                \hline
+                $U$ & $U$ \\
+                \hline
+                $F$ & $T$ \\
+            \end{tabular}
+            \caption{Kleenean weak negation}
+            \label{KleeneWeakNot}
+    \end{subfigure}
+    \caption{The truth tables for Kleenean weak logical connectives}
+
+\end{figure}
+Adding a G\"{o}delian truth value $\mathbb{U}$ is also unsatisfactory. This is because the negation of $\mathbb{U}$ in a G\"{o}delian system is
+$F$, which does not seem to match the interpretations of the connectives. For reference, the truth table of G\"{o}delian negation is given below. 
+
+\begin{figure}[h!]
+        \centering
+            \begin{tabular}{ c | c }
+                $T$ & $F$ \\
+                \hline
+                $\mathbb{U}$ & $F$ \\
+                \hline
+                $F$ & $T$ \\
+            \end{tabular}
+            \label{GoedelNot}
+    \caption{The truth table for G\"{o}delian negation}
+\end{figure}
+
+Thus, the logic (and the linguistics and philosophy) seem to point the
+author to a modal solution. Interpreting the box and diamond operators of modal logic in the provability sense (with $\logbox \phi$ being interpreted
+as `$\phi$ is provable' and $\logdiamond \phi$ being interpreted as `$\phi$ does not introduce an inconsistency') while minding the caveat below,
+seems to resolve some issues. However, one of the problems introduced in the beginning of this paper remains: how to prevent a semantically useless
+statement like $\logdiamond \phi \; \vee \lognot \logdiamond \phi$. If one accepts the Law of Excluded Middle, this is a tautology. This result suggests
+that the \emph{Saptabhangivada} may be non--classical not only in the structure of its truth values, but also in its notions of valitdity
+and derivability. This is a work in progess, as the truth--value system of the \emph{Saptabhangivada} must be solidified before any notion of syntactic 
+derivability or semantic validity can emerge. 
+
+\bigskip
+
+The paper will attempt to resolve some of the problems mentioned above, as well as make further inroads into the syntax and semantics of the 
+\emph{Saptabhangivada}.
+
+\printbibliography
 
 \end{document}
